@@ -1,7 +1,8 @@
+import { SvgIconProps } from "@mui/material"
 export interface RouterModel {
   id: string,
   name: string,
-  icon?: string,
+  icon?: React.ElementType<SvgIconProps>,
   path?: string,
   component?: JSX.Element | React.LazyExoticComponent<() => JSX.Element>,
   children?: readonly RouterModel[]

@@ -1,16 +1,16 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import Tabs from '@mui/material/Tabs';
-import Tab from '@mui/material/Tab';
-import Typography from '@mui/material/Typography';
-import Box from '@mui/material/Box';
+import Tabs from "@mui/material/Tabs";
+import Tab from "@mui/material/Tab";
+import Typography from "@mui/material/Typography";
+import Box from "@mui/material/Box";
 import { useLocation } from "react-router-dom"
-import { handleDataTab } from './handleOptionSearch';
-import routers from '../../../routers/routers';
-import { RouteModel } from '../../../model/RouterModel';
-import Closed from './closed/Closed';
-import Canceled from './canceled/Canceled';
-import Pending from './pending/Pending';
+import { handleDataTab } from "./handleOptionSearch";
+import routers from "../../../routers/routers";
+import { RouteModel } from "../../../model/RouterModel";
+import Closed from "./closed/Closed";
+import Canceled from "./canceled/Canceled";
+import Pending from "./pending/Pending";
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -41,7 +41,7 @@ function TabPanel(props: TabPanelProps) {
 function a11yProps(index: string) {
   return {
     id: `simple-tab-${index}`,
-    'aria-controls': `simple-tabpanel-${index}`,
+    "aria-controls": `simple-tabpanel-${index}`,
   };
 }
 
@@ -60,8 +60,8 @@ export default function OptionSearch() {
   }, [pathname])
 
   return (
-    <Box sx={{ width: '100%' }}>
-      <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+    <Box sx={{ width: "100%" }}>
+      <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
         <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
           {
             handleDataTab(routers)?.map((item: RouteModel) => item?.path && (

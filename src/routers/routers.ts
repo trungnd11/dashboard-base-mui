@@ -1,4 +1,5 @@
 import { lazy } from "react";
+import { LoopSharp, AccessTime, SystemUpdate, Search } from '@mui/icons-material';
 import { RouterModel } from "../model/RouterModel";
 import { generateId } from "../ulti/genertateIdUlti";
 
@@ -8,10 +9,12 @@ const routers: RouterModel[] = [
   {
     id: generateId(),
     name: "Đối soát",
+    icon: LoopSharp,
     children: [
       {
         id: generateId(),
         name: "Tra cứu đối soát",
+        icon: Search,
         children: [
           {
             id: generateId(),
@@ -47,6 +50,7 @@ const routers: RouterModel[] = [
   {
     id: generateId(),
     name: "Vận hành",
+    icon: AccessTime,
     children: [
       {
         id: generateId(),
@@ -68,6 +72,7 @@ const routers: RouterModel[] = [
   {
     id: generateId(),
     name: "Cấu hình",
+    icon: SystemUpdate,
     children: [
       {
         id: generateId(),

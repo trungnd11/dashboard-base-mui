@@ -2,9 +2,11 @@ import { Box, Divider, Typography } from "@mui/material"
 import { TreeItem, TreeView } from '@mui/lab';
 import { ExpandMore, ChevronRight } from '@mui/icons-material';
 import { useNavigate } from "react-router-dom";
-import { StyleLink, StyleSideBar } from "./sideBarStyles";
+import { StyleSideBar } from "./sideBarStyles";
 import routers from "../../routers/routers";
 import { RouterModel } from "../../model/RouterModel";
+import { Color } from "../../components/variable";
+import { getLableItem } from "./handleAppSideBar";
 
 export default function AppSideBar() {
   const navigator = useNavigate();
@@ -13,20 +15,22 @@ export default function AppSideBar() {
     return Array.isArray(nodes) ? nodes.map(item => {
       return (
         <TreeItem onClick={() => item.path && navigator(item.path)}
-          key={item.id} nodeId={item.id}
-          label={item?.path ? <StyleLink
-            to={item.path}>{item.name}</StyleLink> : item.name} >
+          key={item.id}
+          nodeId={item.id}
+          label={getLableItem(item.icon, item.name)}
+        >
           {Array.isArray(item?.children)
             ? item.children.map((node) => renderTree(node))
             : null}
         </TreeItem>
       )
     }) : (
-        <TreeItem onClick={() => nodes.path && navigator(nodes.path)}
+        <TreeItem
+          onClick={() => nodes.path && navigator(nodes.path)}
           key={nodes.id}
           nodeId={nodes.id}
-          label={nodes?.path ? <StyleLink
-            to={nodes.path}>{nodes.name}</StyleLink> : nodes.name} >
+          label={getLableItem(nodes.icon, nodes.name)}
+        >
         {Array.isArray(nodes?.children)
           ? nodes.children.map((node) => renderTree(node))
           : null}
@@ -37,11 +41,11 @@ export default function AppSideBar() {
   return (
     <StyleSideBar>
       <Box className="avatar">
-        <Typography variant="h5">
+        <Typography variant="h5" color={Color.white}>
           Dashboard
         </Typography>
       </Box>
-      <Divider />
+      <Divider light />
       <TreeView
         className="tree-menu"
         aria-label="file system navigator"

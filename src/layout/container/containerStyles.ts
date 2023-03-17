@@ -1,5 +1,5 @@
 import { Box } from "@mui/material";
-import { blueGrey } from '@mui/material/colors';
+import { lightBlue } from '@mui/material/colors';
 import styled from "styled-components";
 
 export const StyleAppContainer = styled(Box)`
@@ -11,7 +11,7 @@ export const StyleAppContainer = styled(Box)`
 
   .app-sider {
     grid-area: sider;
-    background-color: ${blueGrey[100]};
+    background-color: ${lightBlue[900]};
   }
   .app-main {
     grid-area: main;

@@ -1848,7 +1848,7 @@
     prop-types "^15.8.1"
     reselect "^4.1.7"
 
-"@mui/x-data-grid-pro@6.0.2", "@mui/x-data-grid-pro@^6.0.2":
+"@mui/x-data-grid-pro@6.0.2":
   version "6.0.2"
   resolved "https://registry.yarnpkg.com/@mui/x-data-grid-pro/-/x-data-grid-pro-6.0.2.tgz#ce61fa1a1d3ea933452325c91f472b2088252503"
   integrity sha512-8pQ4w21Xdi2Rrw9ooTzNJRA98wBwyfwMBJVPm43WHBzObpOlD53YabHM6A2PWoND/ehO0qRxC5k18TF2HHkxnw==
@@ -1862,7 +1862,7 @@
     prop-types "^15.8.1"
     reselect "^4.1.7"
 
-"@mui/x-data-grid@6.0.2":
+"@mui/x-data-grid@6.0.2", "@mui/x-data-grid@^6.0.2":
   version "6.0.2"
   resolved "https://registry.yarnpkg.com/@mui/x-data-grid/-/x-data-grid-6.0.2.tgz#84b0a3865fdd54c43df14db1bc02ea5792a7d4f0"
   integrity sha512-VCr1hvW5k1zekovTvyB0PxfGGTueAgemkcaFZPDKJP0uTCAyJ69f+vyz9OzDJzbpb58U2onis4tQJETkHnyofg==
@@ -7684,11 +7684,6 @@ node-sass@^8.0.0:
     sass-graph "^4.0.1"
     stdout-stream "^1.4.0"
     "true-case-path" "^2.2.1"
-
-node-uuid@^1.4.8:
-  version "1.4.8"
-  resolved "https://registry.npmjs.org/node-uuid/-/node-uuid-1.4.8.tgz"
-  integrity sha512-TkCET/3rr9mUuRp+CpO7qfgT++aAxfDRaalQhwPFzI9BY/2rCDn6OfpZOVggi1AXfTPpfkTrg5f5WQx5G1uLxA==
 
 nopt@^5.0.0:
   version "5.0.0"
