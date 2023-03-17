@@ -1,71 +1,38 @@
-import { Avatar, Box, Divider, Typography } from "@mui/material"
+import { Box, Divider, Typography } from "@mui/material"
 import { TreeItem, TreeView } from '@mui/lab';
 import { ExpandMore, ChevronRight } from '@mui/icons-material';
-import { StyleSideBar } from "./sideBarStyles";
-
-interface RenderTree {
-  id: string;
-  name: string;
-  children?: readonly RenderTree[];
-}
+import { useNavigate } from "react-router-dom";
+import { StyleLink, StyleSideBar } from "./sideBarStyles";
+import routers from "../../routers/routers";
+import { RouterModel } from "../../model/RouterModel";
 
 export default function AppSideBar() {
-  const data: RenderTree[] = [
-    {
-      id: 'root-1',
-      name: 'Parent-1',
-      children: [
-        {
-          id: '1',
-          name: 'Child - 1',
-        },
-        {
-          id: '3',
-          name: 'Child - 3',
-          children: [
-            {
-              id: '4',
-              name: 'Child - 4',
-            },
-          ],
-        },
-      ],
-    },
-    {
-      id: 'root-2',
-      name: 'Parent-2',
-      children: [
-        {
-          id: '5',
-          name: 'Child - 2',
-        },
-        {
-          id: '6',
-          name: 'Child - 2',
-          children: [
-            {
-              id: '7',
-              name: 'Child - 4',
-            },
-          ],
-        },
-      ],
-    }
-  ];
+  const navigator = useNavigate();
 
-  const renderTree = (nodes: RenderTree[] | RenderTree) => Array.isArray(nodes) ? nodes.map(item => (
-    <TreeItem key={item.id} nodeId={item.id} label={item.name}>
-      {Array.isArray(item?.children)
-        ? item.children.map((node) => renderTree(node))
-        : null}
-    </TreeItem>
-  )) : (
-      <TreeItem key={nodes.id} nodeId={nodes.id} label={nodes.name}>
+  const renderTree = (nodes: RouterModel[] | RouterModel) => {
+    return Array.isArray(nodes) ? nodes.map(item => {
+      return (
+        <TreeItem onClick={() => item.path && navigator(item.path)}
+          key={item.id} nodeId={item.id}
+          label={item?.path ? <StyleLink
+            to={item.path}>{item.name}</StyleLink> : item.name} >
+          {Array.isArray(item?.children)
+            ? item.children.map((node) => renderTree(node))
+            : null}
+        </TreeItem>
+      )
+    }) : (
+        <TreeItem onClick={() => nodes.path && navigator(nodes.path)}
+          key={nodes.id}
+          nodeId={nodes.id}
+          label={nodes?.path ? <StyleLink
+            to={nodes.path}>{nodes.name}</StyleLink> : nodes.name} >
         {Array.isArray(nodes?.children)
           ? nodes.children.map((node) => renderTree(node))
           : null}
       </TreeItem>
-  );
+    )
+  };
 
   return (
     <StyleSideBar>
@@ -81,7 +48,7 @@ export default function AppSideBar() {
         defaultCollapseIcon={<ExpandMore />}
         defaultExpandIcon={<ChevronRight />}
       >
-        {renderTree(data)}
+        {renderTree(routers)}
       </TreeView>
     </StyleSideBar>
   )

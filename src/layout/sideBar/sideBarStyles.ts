@@ -1,5 +1,7 @@
 import styled, { CSSProperties } from "styled-components";
 import { Box } from "@mui/material";
+import { grey } from '@mui/material/colors';
+import { Link } from "react-router-dom";
 import { Height } from "../../components/variable";
 
 export const StyleSideBar = styled(Box)`  
@@ -19,6 +21,14 @@ export const StyleSideBar = styled(Box)`
       }
     }
   }
+  .link {
+    
+  }
+`;
+
+export const StyleLink: typeof Link = styled(Link)`
+  text-decoration: none;
+  color: ${grey[900]};
 `;
 
 export const StyleDivider: CSSProperties = {

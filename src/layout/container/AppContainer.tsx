@@ -5,7 +5,6 @@ import AppSideBar from "../sideBar/AppSideBar";
 import { StyleAppContainer } from "./containerStyles";
 
 export default function AppContainer() {
-
   return (
     <StyleAppContainer>
       <Box className="app-sider">
