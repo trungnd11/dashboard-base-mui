@@ -1,7 +1,7 @@
 import { DataGrid } from "@mui/x-data-grid";
 import { useDemoData } from "@mui/x-data-grid-generator";
 import { useEffect, useState } from "react";
-import { isEmptyArray } from "../../../../helpper/functionCommon";
+import { isEmptyArray } from "src/helpper/functionCommon";
 
 export default function TableClosed() {
   const { data } = useDemoData({

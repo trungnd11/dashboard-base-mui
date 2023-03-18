@@ -12,3 +12,9 @@ export const Color = {
   white: "#fff",
   black: "#000"
 };
+
+export const BorderRadius = {
+  br8: "8px",
+  br10: "10px",
+  br12: "12px"
+};
