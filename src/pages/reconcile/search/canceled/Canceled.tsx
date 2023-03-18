@@ -1,9 +1,9 @@
-import { HideSource, Search } from '@mui/icons-material'
-import { Masonry } from '@mui/lab'
-import { Grid, Autocomplete, TextField, Button } from '@mui/material'
-import { top100Films } from '../pending/Pending'
-import { masonryStyle } from '../pending/stylePending'
-import TablePending from '../pending/TablePending'
+import { HideSource, Search } from "@mui/icons-material";
+import { Masonry } from "@mui/lab";
+import { Grid, Autocomplete, TextField, Button } from "@mui/material";
+import { top100Films } from "../pending/Pending";
+import { masonryStyle } from "../pending/stylePending";
+import TablePending from "../pending/TablePending";
 
 export default function Canceled() {
   return (
@@ -55,5 +55,5 @@ export default function Canceled() {
         <TablePending />
       </Grid>
     </Grid>
-  )
+  );
 }

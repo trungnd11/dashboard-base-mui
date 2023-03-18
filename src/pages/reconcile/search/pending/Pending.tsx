@@ -6,15 +6,13 @@ import ListFiles from "./ListFiles";
 import { masonryStyle } from "./stylePending";
 
 export const top100Films = [
-  { title: 'The Shawshank Redemption', year: 1994 },
-  { title: 'The Godfather', year: 1972 },
-  { title: 'The Godfather: Part II', year: 1974 },
-  { title: 'The Dark Knight', year: 2008 }
+  { title: "The Shawshank Redemption", year: 1994 },
+  { title: "The Godfather", year: 1972 },
+  { title: "The Godfather: Part II", year: 1974 },
+  { title: "The Dark Knight", year: 2008 }
 ];
 
-
 export default function Pending() {
-
   return (
     <Grid container spacing={3}>
       <Grid item xl={3}>
@@ -85,5 +83,5 @@ export default function Pending() {
         <ListFiles />
       </Grid>
     </Grid>
-  )
+  );
 }

@@ -6,7 +6,7 @@ export const Height = {
 export const Width = {
   w250: "250px",
   w300: "300px"
-}
+};
 
 export const Color = {
   white: "#fff",

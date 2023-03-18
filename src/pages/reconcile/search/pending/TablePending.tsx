@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
 import { DataGrid } from "@mui/x-data-grid";
-import { useDemoData } from '@mui/x-data-grid-generator';
+import { useDemoData } from "@mui/x-data-grid-generator";
 import { isEmptyArray } from "../../../../helpper/functionCommon";
 
 export default function TablePending() {
   const { data } = useDemoData({
-    dataSet: 'Employee',
+    dataSet: "Employee",
     rowLength: 100,
     editable: true,
   });
@@ -25,5 +25,5 @@ export default function TablePending() {
         pagination
       />
     </>
-  )
+  );
 }

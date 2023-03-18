@@ -19,5 +19,5 @@ export default function AppContainer() {
         </Box>
       </Box>
     </StyleAppContainer>
-  )
+  );
 }

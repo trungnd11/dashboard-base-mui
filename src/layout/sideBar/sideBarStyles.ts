@@ -1,6 +1,6 @@
-import styled, { CSSProperties } from "styled-components";
+import styled, { type CSSProperties } from "styled-components";
 import { Box } from "@mui/material";
-import { indigo } from '@mui/material/colors';
+import { indigo } from "@mui/material/colors";
 import { Link } from "react-router-dom";
 import { Color, Height } from "../../components/variable";
 
@@ -46,4 +46,3 @@ export const StyleLink: typeof Link = styled(Link)`
 export const StyleDivider: CSSProperties = {
   margin: "1rem 0"
 };
-

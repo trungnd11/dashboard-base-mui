@@ -1,21 +1,20 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
-import { useLocation } from "react-router-dom"
 import { handleDataTab } from "./handleOptionSearch";
 import routers from "../../../routers/routers";
-import { RouteModel } from "../../../model/RouterModel";
+import { type RouteModel } from "../../../model/RouterModel";
 import Closed from "./closed/Closed";
 import Canceled from "./canceled/Canceled";
 import Pending from "./pending/Pending";
 
 interface TabPanelProps {
-  children?: React.ReactNode;
-  index: number | string;
-  value: number | string;
+  children?: React.ReactNode
+  index: number | string
+  value: number | string
 }
 
 function TabPanel(props: TabPanelProps) {
@@ -57,7 +56,7 @@ export default function OptionSearch() {
 
   useEffect(() => {
     setValue(() => handleDataTab(routers)?.find((item: RouteModel) => item.path === pathname)?.id);
-  }, [pathname])
+  }, [pathname]);
 
   return (
     <Box sx={{ width: "100%" }}>
@@ -80,7 +79,5 @@ export default function OptionSearch() {
         <Canceled />
       </TabPanel>
     </Box>
-    
   );
 }
-

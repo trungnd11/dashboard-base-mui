@@ -21,5 +21,5 @@ export default function ListFiles() {
         <TablePending />
       </Grid>
     </Grid>
-  )
+  );
 }

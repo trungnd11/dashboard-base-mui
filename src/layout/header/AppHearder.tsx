@@ -1,6 +1,6 @@
-import { StyleHeader } from './headerStyles';
+import { StyleHeader } from "./headerStyles";
 import { Menu } from "@mui/icons-material";
-import { Avatar } from '@mui/material';
+import { Avatar } from "@mui/material";
 
 export default function AppHearder() {
   return (
@@ -8,6 +8,5 @@ export default function AppHearder() {
       <Menu />
       <Avatar />
     </StyleHeader>
-  )
+  );
 }
-

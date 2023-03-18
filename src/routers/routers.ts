@@ -1,9 +1,9 @@
 import { lazy } from "react";
-import { LoopSharp, AccessTime, SystemUpdate, Search } from '@mui/icons-material';
-import { RouterModel } from "../model/RouterModel";
+import { LoopSharp, AccessTime, SystemUpdate, Search } from "@mui/icons-material";
+import { type RouterModel } from "../model/RouterModel";
 import { generateId } from "../ulti/genertateIdUlti";
 
-const OptionSearch = lazy(() => import("../pages/reconcile/search/OptionSearch"));
+const OptionSearch = lazy(async () => await import("../pages/reconcile/search/OptionSearch"));
 
 const routers: RouterModel[] = [
   {

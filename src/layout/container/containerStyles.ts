@@ -1,5 +1,5 @@
 import { Box } from "@mui/material";
-import { lightBlue } from '@mui/material/colors';
+import { lightBlue } from "@mui/material/colors";
 import styled from "styled-components";
 
 export const StyleAppContainer = styled(Box)`

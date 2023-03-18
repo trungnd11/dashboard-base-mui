@@ -1,10 +1,10 @@
-import { Box, Divider, Typography } from "@mui/material"
-import { TreeItem, TreeView } from '@mui/lab';
-import { ExpandMore, ChevronRight } from '@mui/icons-material';
+import { Box, Divider, Typography } from "@mui/material";
+import { TreeItem, TreeView } from "@mui/lab";
+import { ExpandMore, ChevronRight } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
 import { StyleSideBar } from "./sideBarStyles";
 import routers from "../../routers/routers";
-import { RouterModel } from "../../model/RouterModel";
+import { type RouterModel } from "../../model/RouterModel";
 import { Color } from "../../components/variable";
 import { getLableItem } from "./handleAppSideBar";
 
@@ -12,9 +12,10 @@ export default function AppSideBar() {
   const navigator = useNavigate();
 
   const renderTree = (nodes: RouterModel[] | RouterModel) => {
-    return Array.isArray(nodes) ? nodes.map(item => {
-      return (
-        <TreeItem onClick={() => item.path && navigator(item.path)}
+    return Array.isArray(nodes)
+      ? nodes.map(item => {
+        return (
+        <TreeItem onClick={() => { item.path && navigator(item.path); }}
           key={item.id}
           nodeId={item.id}
           label={getLableItem(item.icon, item.name)}
@@ -23,10 +24,11 @@ export default function AppSideBar() {
             ? item.children.map((node) => renderTree(node))
             : null}
         </TreeItem>
-      )
-    }) : (
+        );
+      })
+      : (
         <TreeItem
-          onClick={() => nodes.path && navigator(nodes.path)}
+          onClick={() => { nodes.path && navigator(nodes.path); }}
           key={nodes.id}
           nodeId={nodes.id}
           label={getLableItem(nodes.icon, nodes.name)}
@@ -35,7 +37,7 @@ export default function AppSideBar() {
           ? nodes.children.map((node) => renderTree(node))
           : null}
       </TreeItem>
-    )
+        );
   };
 
   return (
@@ -55,6 +57,5 @@ export default function AppSideBar() {
         {renderTree(routers)}
       </TreeView>
     </StyleSideBar>
-  )
+  );
 }
-
