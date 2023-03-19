@@ -1,5 +1,6 @@
-import { Box, Button, Grid, Typography } from "@mui/material";
 import { useState } from "react";
+import { Box, Button, Grid, Paper, Typography } from "@mui/material";
+import { lightBlue } from "@mui/material/colors";
 import InputCommon from "src/components/input/InputCommon";
 import { type UserModel } from "src/model/Usermodel";
 import { login } from "src/store/author/author";
@@ -19,39 +20,45 @@ export default function Login() {
 
   return (
     <StyleLogin>
-      <Box className="form-login">
-        <Grid container spacing={3}>
-          <Grid item lg={12}>
-            <Typography variant="h4" textAlign="center" className="login_title">
-              Dashboard
-            </Typography>
+      <Paper>
+        <Box className="form-login">
+          <Grid container spacing={3}>
+            <Grid item lg={12}>
+              <Typography variant="h4" color={lightBlue[900]} textAlign="center" className="login_title">
+                Đăng nhập
+              </Typography>
+            </Grid>
+            <Grid item lg={12}>
+              <InputCommon
+                label="Tên đăng nhập"
+                value={formLogin?.username}
+                focused
+                variant="standard"
+                onChange={(value) =>
+                  setFormLogin((pre) => ({ ...pre, username: value }))
+                }
+              />
+            </Grid>
+            <Grid item lg={12}>
+              <InputCommon
+                label="Mật khẩu"
+                type="password"
+                focused
+                variant="standard"
+                value={formLogin?.password}
+                onChange={(value) =>
+                  setFormLogin((pre) => ({ ...pre, password: value }))
+                }
+              />
+            </Grid>
+            <Grid item lg={12}>
+              <Button fullWidth variant="outlined" onClick={onFinish}>
+                Đăng nhập
+              </Button>
+            </Grid>
           </Grid>
-          <Grid item lg={12}>
-            <InputCommon
-              label="Tên đăng nhập"
-              value={formLogin?.username}
-              onChange={(value) =>
-                setFormLogin((pre) => ({ ...pre, username: value }))
-              }
-            />
-          </Grid>
-          <Grid item lg={12}>
-            <InputCommon
-              label="Mật khẩu"
-              type="password"
-              value={formLogin?.password}
-              onChange={(value) =>
-                setFormLogin((pre) => ({ ...pre, password: value }))
-              }
-            />
-          </Grid>
-          <Grid item lg={12}>
-            <Button fullWidth variant="outlined" onClick={onFinish}>
-              Đăng nhập
-            </Button>
-          </Grid>
-        </Grid>
-      </Box>
+        </Box>
+      </Paper>
     </StyleLogin>
   );
 }

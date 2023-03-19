@@ -68,7 +68,7 @@ export default function Pending() {
           )}
         />
       </Grid>
-      <Grid item lg={4} textAlign="end">
+      <Grid item lg={4} xl={9} textAlign="end">
         <Space justifyContent="end">
           <Button variant="contained" startIcon={<Search />}>
             Tìm kiếm

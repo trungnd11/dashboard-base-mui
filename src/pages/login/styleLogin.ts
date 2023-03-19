@@ -14,7 +14,7 @@ export const StyleLogin = styled.div`
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    padding: 2rem 1rem;
+    padding: 2rem;
     border-radius: ${BorderRadius.br8};
     display: flex;
     justify-content: center;

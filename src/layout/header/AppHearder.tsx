@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { PersonAdd, Settings, Logout, MenuSharp } from "@mui/icons-material";
+import { Settings, Logout, MenuSharp } from "@mui/icons-material";
 import { Avatar, MenuItem, Menu, Divider, ListItemIcon, IconButton, Tooltip } from "@mui/material";
 import { PaperProps, StyleHeader } from "./headerStyles";
 import { useAppDispatch, useAppSelector } from "src/store/reduxHook";
@@ -20,6 +20,9 @@ export default function AppHearder() {
 
   const handleClose = () => {
     setAnchorEl(null);
+  };
+
+  const handleLogout = () => {
     dispatch(logout());
   };
 
@@ -49,6 +52,7 @@ export default function AppHearder() {
         anchorEl={anchorEl}
         id="account-menu"
         open={open}
+        onClose={handleClose}
         PaperProps={PaperProps}
         transformOrigin={{ horizontal: "right", vertical: "top" }}
         anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
@@ -56,23 +60,14 @@ export default function AppHearder() {
         <MenuItem>
           <Avatar /> Profile
         </MenuItem>
-        <MenuItem >
-          <Avatar /> My account
-        </MenuItem>
         <Divider />
-        <MenuItem>
-          <ListItemIcon>
-            <PersonAdd fontSize="small" />
-          </ListItemIcon>
-          Add another account
-        </MenuItem>
         <MenuItem>
           <ListItemIcon>
             <Settings fontSize="small" />
           </ListItemIcon>
           Settings
         </MenuItem>
-        <MenuItem onClick={handleClose}>
+        <MenuItem onClick={handleLogout}>
           <ListItemIcon>
             <Logout fontSize="small" />
           </ListItemIcon>
