@@ -1,12 +1,84 @@
-import { StyleHeader } from "./headerStyles";
-import { Menu } from "@mui/icons-material";
-import { Avatar } from "@mui/material";
+import { useState } from "react";
+import { PersonAdd, Settings, Logout, MenuSharp } from "@mui/icons-material";
+import { Avatar, MenuItem, Menu, Divider, ListItemIcon, IconButton, Tooltip } from "@mui/material";
+import { PaperProps, StyleHeader } from "./headerStyles";
+import { useAppDispatch, useAppSelector } from "src/store/reduxHook";
+import { getAuthorStore, logout } from "src/store/author/author";
+import { Box } from "@mui/system";
+import Space from "src/components/space/Space";
+import { Color } from "src/components/variable";
 
 export default function AppHearder() {
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+  const open = Boolean(anchorEl);
+  const { username } = useAppSelector(getAuthorStore);
+  const dispatch = useAppDispatch();
+
+  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+    dispatch(logout());
+  };
+
   return (
-    <StyleHeader>
-      <Menu />
-      <Avatar />
-    </StyleHeader>
+    <>
+      <StyleHeader>
+        <MenuSharp />
+        <Tooltip title="Account settings">
+          <IconButton
+            onClick={handleClick}
+            size="small"
+            sx={{ ml: 2 }}
+            aria-controls={open ? "account-menu" : undefined}
+            aria-haspopup="true"
+            aria-expanded={open ? "true" : undefined}
+          >
+            <Space>
+              <Box component="span" color={Color.white}>
+                {username}
+              </Box>
+              <Avatar sx={{ width: 32, height: 32 }}>A</Avatar>
+            </Space>
+          </IconButton>
+        </Tooltip>
+      </StyleHeader>
+      <Menu
+        anchorEl={anchorEl}
+        id="account-menu"
+        open={open}
+        PaperProps={PaperProps}
+        transformOrigin={{ horizontal: "right", vertical: "top" }}
+        anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
+      >
+        <MenuItem>
+          <Avatar /> Profile
+        </MenuItem>
+        <MenuItem >
+          <Avatar /> My account
+        </MenuItem>
+        <Divider />
+        <MenuItem>
+          <ListItemIcon>
+            <PersonAdd fontSize="small" />
+          </ListItemIcon>
+          Add another account
+        </MenuItem>
+        <MenuItem>
+          <ListItemIcon>
+            <Settings fontSize="small" />
+          </ListItemIcon>
+          Settings
+        </MenuItem>
+        <MenuItem onClick={handleClose}>
+          <ListItemIcon>
+            <Logout fontSize="small" />
+          </ListItemIcon>
+          Logout
+        </MenuItem>
+      </Menu>
+    </>
   );
 }

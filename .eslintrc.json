@@ -45,6 +45,8 @@
           "asyncArrow": "always"
         }
       ],
-      "@typescript-eslint/comma-dangle": [0]
+      "@typescript-eslint/comma-dangle": [0],
+      "@typescript-eslint/no-confusing-void-expression": [0],
+      "@typescript-eslint/prefer-optional-chain": [0]
     }
 }

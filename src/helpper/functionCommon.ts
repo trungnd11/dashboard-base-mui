@@ -1,3 +1,5 @@
+export const isArray = (data: unknown) => Array.isArray(data);
+
 export const isEmptyArray = (inputArray: any[] | any) => {
   return Array.isArray(inputArray) && inputArray.length === 0;
 };

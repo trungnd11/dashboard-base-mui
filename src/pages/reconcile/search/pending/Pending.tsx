@@ -1,9 +1,8 @@
 import { Autocomplete, Button, Divider, Grid, TextField } from "@mui/material";
 import { Close, Create, ExploreOff, HideSource, Search, Update } from "@mui/icons-material";
-import { Masonry } from "@mui/lab";
+import Space from "src/components/space/Space";
 import TablePending from "./TablePending";
 import ListFiles from "./ListFiles";
-import { masonryStyle } from "./stylePending";
 
 export const top100Films = [
   { title: "The Shawshank Redemption", year: 1994 },
@@ -15,71 +14,97 @@ export const top100Films = [
 export default function Pending() {
   return (
     <Grid container spacing={3}>
-      <Grid item xl={3}>
+      <Grid item lg={4} xl={3}>
         <Autocomplete
           options={top100Films}
           size="small"
           getOptionLabel={(option) => option.title}
-          renderInput={(params) => <TextField {...params} label="Lịch so sánh" variant="outlined" />}
+          renderInput={(params) => (
+            <TextField {...params} label="Lịch so sánh" variant="outlined" />
+          )}
         />
       </Grid>
-      <Grid item xl={3}>
+      <Grid item lg={4} xl={3}>
         <Autocomplete
           options={top100Films}
           size="small"
           getOptionLabel={(option) => option.title}
-          renderInput={(params) => <TextField {...params} label="Đối tác" variant="outlined" />}
+          renderInput={(params) => (
+            <TextField {...params} label="Đối tác" variant="outlined" />
+          )}
         />
       </Grid>
-      <Grid item xl={3}>
+      <Grid item lg={4} xl={3}>
         <Autocomplete
           options={top100Films}
           size="small"
           getOptionLabel={(option) => option.title}
-          renderInput={(params) => <TextField {...params} label="Hệ thống gốc" variant="outlined" />}
+          renderInput={(params) => (
+            <TextField {...params} label="Hệ thống gốc" variant="outlined" />
+          )}
         />
       </Grid>
-      <Grid item xl={3}>
+      <Grid item lg={4} xl={3}>
         <Autocomplete
           options={top100Films}
           size="small"
           getOptionLabel={(option) => option.title}
-          renderInput={(params) => <TextField {...params} label="Trạng thái xử lý" variant="outlined" />}
+          renderInput={(params) => (
+            <TextField
+              {...params}
+              label="Trạng thái xử lý"
+              variant="outlined"
+            />
+          )}
         />
       </Grid>
-      <Grid item xl={3}>
+      <Grid item lg={4} xl={3}>
         <Autocomplete
           options={top100Films}
           size="small"
           getOptionLabel={(option) => option.title}
-          renderInput={(params) => <TextField {...params} label="Thời gian" variant="outlined" />}
+          renderInput={(params) => (
+            <TextField {...params} label="Thời gian" variant="outlined" />
+          )}
         />
       </Grid>
-      <Grid item xl={9} textAlign="end">
-        <Masonry columns={3} spacing={3} sx={masonryStyle}>
-          <Button variant="contained" startIcon={<Search />}>Tìm kiếm</Button>
-        </Masonry>
+      <Grid item lg={4} textAlign="end">
+        <Space justifyContent="end">
+          <Button variant="contained" startIcon={<Search />}>
+            Tìm kiếm
+          </Button>
+        </Space>
       </Grid>
-      <Grid item xl={6}>
-        <Masonry columns={3} spacing={3}>
-          <Button variant="contained" startIcon={<Create />}>Tạo đối soát</Button>
-          <Button variant="contained" startIcon={<Update />}>Duyệt kết quả</Button>
-          <Button variant="contained" startIcon={<Close />}>Đóng phiên</Button>
-        </Masonry>
+      <Grid item lg={6}>
+        <Space>
+          <Button variant="contained" startIcon={<Create />}>
+            Tạo đối soát
+          </Button>
+          <Button variant="contained" startIcon={<Update />}>
+            Duyệt kết quả
+          </Button>
+          <Button variant="contained" startIcon={<Close />}>
+            Đóng phiên
+          </Button>
+        </Space>
       </Grid>
-      <Grid item xl={6}>
-        <Masonry columns={3} spacing={3} sx={masonryStyle}>
-          <Button variant="contained" startIcon={<ExploreOff />}>Xuất báo cáo</Button>
-          <Button variant="contained" startIcon={<HideSource />}>Ẩn/hiện cột</Button>
-        </Masonry>
+      <Grid item lg={6}>
+        <Space justifyContent="end">
+          <Button variant="contained" startIcon={<ExploreOff />}>
+            Xuất báo cáo
+          </Button>
+          <Button variant="contained" startIcon={<HideSource />}>
+            Ẩn/hiện cột
+          </Button>
+        </Space>
       </Grid>
-      <Grid item xl={12} style={{ height: 600, width: 1000 }}>
+      <Grid item lg={12} style={{ height: 600, width: 1000 }}>
         <TablePending />
       </Grid>
-      <Grid item xl={12}>
+      <Grid item lg={12}>
         <Divider />
       </Grid>
-      <Grid item xl={12}>
+      <Grid item lg={12}>
         <ListFiles />
       </Grid>
     </Grid>

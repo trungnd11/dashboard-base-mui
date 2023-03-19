@@ -4,6 +4,7 @@ export const Height = {
 };
 
 export const Width = {
+  w180: "180px",
   w250: "250px",
   w300: "300px"
 };
