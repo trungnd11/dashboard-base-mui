@@ -5,7 +5,7 @@ export interface RouterModel {
   icon?: React.ElementType<SvgIconProps>
   path?: string
   component?: JSX.Element | React.LazyExoticComponent<() => JSX.Element>
-  children?: readonly RouterModel[]
+  children?: RouterModel[]
 };
 
 export interface RouteModel {

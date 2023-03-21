@@ -7,6 +7,7 @@ import { getAuthorStore, logout } from "src/store/author/author";
 import { Box } from "@mui/system";
 import Space from "src/components/space/Space";
 import { Color } from "src/components/variable";
+import { toggleSider } from "src/store/siderBar/siderBar";
 
 export default function AppHearder() {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
@@ -26,10 +27,16 @@ export default function AppHearder() {
     dispatch(logout());
   };
 
+  const toggleSiderBar = () => {
+    dispatch(toggleSider());
+  };
+
   return (
     <>
       <StyleHeader>
-        <MenuSharp />
+        <IconButton onClick={toggleSiderBar}>
+          <MenuSharp />
+        </IconButton>
         <Tooltip title="Account settings">
           <IconButton
             onClick={handleClick}

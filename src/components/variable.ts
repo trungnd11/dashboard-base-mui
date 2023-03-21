@@ -5,6 +5,7 @@ export const Height = {
 
 export const Width = {
   w180: "180px",
+  w200: "200px",
   w250: "250px",
   w300: "300px"
 };

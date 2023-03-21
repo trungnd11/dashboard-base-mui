@@ -9,7 +9,7 @@ export const StyleLogin = styled.div`
 
   .form-login {
     position: absolute;
-    width: 30%;
+    width: 25%;
     background-color: ${Color.white};
     left: 50%;
     top: 50%;
