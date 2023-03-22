@@ -1,4 +1,5 @@
 export const Height = {
+  h40: "40px",
   h64: "64px",
   h120: "120px"
 };
@@ -19,4 +20,9 @@ export const BorderRadius = {
   br8: "8px",
   br10: "10px",
   br12: "12px"
+};
+
+export const WidthSiderBar = {
+  small: "85px",
+  normal: "250px"
 };
