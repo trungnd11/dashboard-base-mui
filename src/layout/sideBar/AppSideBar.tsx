@@ -11,6 +11,8 @@ import { getLableItem } from "./handleAppSideBar";
 import { useAppSelector } from "src/store/reduxHook";
 import { getSiderBarStore } from "src/store/siderBar/siderBar";
 
+const LOGO_URL = "https://vetc.com.vn/images/logo_trang.svg";
+
 export default function AppSideBar() {
   const ROOT_MENU = "1";
   const navigator = useNavigate();
@@ -114,9 +116,9 @@ export default function AppSideBar() {
   return (
     <StyleSideBar toggle={toggle}>
       <Box className="avatar">
-        <Typography variant={toggle ? "h3" : "h5"} color={Color.white}>
+        <Typography variant={toggle ? "h4" : "h5"} color={Color.white} textAlign="center">
           {
-            toggle ? "D" : "Dashboard"
+            toggle ? <b>V</b> : <img src={LOGO_URL} />
           }
         </Typography>
       </Box>

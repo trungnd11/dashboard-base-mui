@@ -1,10 +1,9 @@
 import styled from "styled-components";
 import { Box } from "@mui/material";
-import { lightBlue } from "@mui/material/colors";
 import { Color, Height } from "../../components/variable";
 
 export const StyleHeader = styled(Box)`
-  background-color: ${lightBlue[900]};
+  background-color: ${Color.main};
   height: ${Height.h64};
   display: flex;
   align-items: center;

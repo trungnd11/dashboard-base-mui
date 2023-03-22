@@ -48,6 +48,7 @@
       "@typescript-eslint/comma-dangle": [0],
       "@typescript-eslint/no-confusing-void-expression": [0],
       "@typescript-eslint/prefer-optional-chain": [0],
+      "@typescript-eslint/promise-function-async": [0],
       "multiline-ternary": "off",
       "no-unneeded-ternary": "off",
       "eol-last": "off"

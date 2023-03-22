@@ -1,9 +1,8 @@
 import styled from "styled-components";
-import { lightBlue } from "@mui/material/colors";
 import { BorderRadius, Color } from "src/components/variable";
 
 export const StyleLogin = styled.div`
-  background-color: ${lightBlue[900]};
+  background-color: ${Color.main};
   position: relative;
   height: 100vh;
 

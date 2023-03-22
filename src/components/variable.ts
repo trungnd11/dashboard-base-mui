@@ -13,7 +13,9 @@ export const Width = {
 
 export const Color = {
   white: "#fff",
-  black: "#000"
+  black: "#000",
+  main: "#01a651",
+  subMenu: "#f2f7f5",
 };
 
 export const BorderRadius = {

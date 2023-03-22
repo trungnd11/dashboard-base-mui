@@ -1,5 +1,7 @@
 import { lazy, Suspense, useEffect } from "react";
+import { QueryClientProvider } from "react-query";
 import { Routes, Route, useLocation, Navigate } from "react-router-dom";
+import queryClient from "./config/queryClient";
 import { Authenticate } from "./enum/AuthorEnum";
 import { getCookie } from "./helpper/cookie";
 import AuthorizedRouter from "./routers/AuthorizedRouter";
@@ -25,26 +27,28 @@ function App() {
   }, [isAuthorized]);
 
   return (
-    <Suspense fallback={<span>Loading...</span>}>
-      <Routes>
-        <Route
-          path="/login"
-          element={
-            <ProtectedRouter>
-              <Login />
-            </ProtectedRouter>
-          }
-        />
-        <Route
-          path="*"
-          element={
-            <AuthorizedRouter>
-              <AppContainer />
-            </AuthorizedRouter>
-          }
-        />
-      </Routes>
-    </Suspense>
+    <QueryClientProvider client={queryClient}>
+      <Suspense fallback={<span>Loading...</span>}>
+        <Routes>
+          <Route
+            path="/login"
+            element={
+              <ProtectedRouter>
+                <Login />
+              </ProtectedRouter>
+            }
+          />
+          <Route
+            path="*"
+            element={
+              <AuthorizedRouter>
+                <AppContainer />
+              </AuthorizedRouter>
+            }
+          />
+        </Routes>
+      </Suspense>
+    </QueryClientProvider>
   );
 }
 

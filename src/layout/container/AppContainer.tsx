@@ -13,7 +13,7 @@ export default function AppContainer() {
 
   return (
     <StyleAppContainer toggle={toggle}>
-      <Box className="app-sider">
+      <Box className="app-sider" boxShadow={2}>
         <AppSideBar />
       </Box>
       <Box component="main" className="app-main" onClick={() => toggle && dispath(onCloseMenu())}>

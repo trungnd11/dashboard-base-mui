@@ -1,6 +1,5 @@
 import { Box } from "@mui/material";
-import { lightBlue } from "@mui/material/colors";
-import { WidthSiderBar, Height } from "src/components/variable";
+import { WidthSiderBar, Height, Color } from "src/components/variable";
 import styled from "styled-components";
 
 interface StyleContainerProp {
@@ -17,7 +16,7 @@ export const StyleAppContainer = styled(Box) <StyleContainerProp>`
 
   .app-sider {
     grid-area: sider;
-    background-color: ${lightBlue[900]};
+    background-color: ${Color.main};
     position: fixed;
     width: ${(props) => props.toggle ? `${WidthSiderBar.small}` : `${WidthSiderBar.normal}`};
     height: 100vh;

@@ -98,7 +98,7 @@ export default function Pending() {
           </Button>
         </Space>
       </Grid>
-      <Grid item lg={12} style={{ height: 600, width: 1000 }}>
+      <Grid item lg={12} sx={{ width: 1000 }}>
         <TablePending />
       </Grid>
       <Grid item lg={12}>

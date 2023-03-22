@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Box, Button, Grid, Paper, Typography } from "@mui/material";
-import { lightBlue } from "@mui/material/colors";
+import { green } from "@mui/material/colors";
 import InputCommon from "src/components/input/InputCommon";
 import { type UserModel } from "src/model/Usermodel";
 import { login } from "src/store/author/author";
@@ -24,7 +24,7 @@ export default function Login() {
         <Box className="form-login">
           <Grid container spacing={3}>
             <Grid item lg={12}>
-              <Typography variant="h4" color={lightBlue[900]} textAlign="center" className="login_title">
+              <Typography variant="h4" color={green[800]} textAlign="center" className="login_title">
                 Đăng nhập
               </Typography>
             </Grid>

@@ -1,7 +1,7 @@
 import styled, { type CSSProperties } from "styled-components";
 import { Box } from "@mui/material";
 import { TreeView } from "@mui/lab";
-import { indigo, lightBlue } from "@mui/material/colors";
+import { green, indigo } from "@mui/material/colors";
 import { Link } from "react-router-dom";
 import { Color, Height } from "../../components/variable";
 
@@ -9,12 +9,16 @@ interface StyleSiderBarProps {
   toggle?: boolean
 }
 
-export const StyleSideBar = styled(Box) <StyleSiderBarProps>`  
+export const StyleSideBar = styled(Box) <StyleSiderBarProps>`
   .avatar {
     display: flex;
     justify-content: center;
     align-items: center;
     height: ${Height.h64};
+
+    img {
+      width: 70%;
+    }
   }
 
   .MuiDivider-root {
@@ -43,11 +47,15 @@ export const StyleSideBar = styled(Box) <StyleSiderBarProps>`
     }
 
     .MuiTreeItem-root[aria-expanded="true"] {
-      background-color: ${lightBlue[800]};
+      background-color: ${green[100]};
+
+      .MuiTreeItem-label, svg {
+        color: ${Color.black};
+      }
     }
 
     .Mui-selected {
-      background-color: ${lightBlue[600]} !important;
+      background-color: ${green[200]} !important;
     }
   }
   .link {
@@ -95,6 +103,6 @@ export const StyleTreeviewSmall = styled(TreeView)`
     }
 
     .Mui-selected {
-      background-color: ${lightBlue[600]} !important;
+      background-color: ${green[600]} !important;
     }
 `;

@@ -1,13 +1,14 @@
-import { lightBlue } from "@mui/material/colors";
 import styled from "styled-components";
+import { green } from "@mui/material/colors";
 import { Color, Height } from "../variable";
+import { Box } from "@mui/material";
 
-export const StyleBreadscrumb = styled.div`
+export const StyleBreadscrumb: typeof Box = styled(Box)`
   height: ${Height.h40};
   width: 100%;
   display: flex;
   align-items: center;
   padding: 0 1rem;
-  background-color: ${Color.white};
-  border-bottom: 1px solid ${lightBlue[900]};
+  background-color: ${Color.subMenu};
+  border-bottom: 1px solid ${green[900]};
 `;
