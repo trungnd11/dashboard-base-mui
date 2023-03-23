@@ -43,7 +43,7 @@ const routers: RouterModel[] = [
       {
         id: generateId(),
         name: "Kết quả đối soát cuối cùng",
-        path: "/sreconcicle/final-resutl"
+        path: "/reconcicle/final-resutl"
       }
     ],
   },

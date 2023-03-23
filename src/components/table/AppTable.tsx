@@ -3,19 +3,23 @@ import { type TablePaginationProps, LinearProgress } from "@mui/material";
 import { DataGrid, GridPagination, type GridColDef } from "@mui/x-data-grid";
 import MuiPagination from "@mui/material/Pagination";
 import { type AppTableModel } from "src/model/component/AppTableModel";
+import { toNumber } from "src/helpper/functionCommon";
 
 export default function AppTable(props: AppTableModel) {
   const { rows, columns, loading, checkboxSelection, pageCount, onPage, onPageSize } = props;
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useState<number>(1);
+  const [pageSize, setPageSize] = useState<number>(10);
 
   const Pagination = ({
     className,
   }: Pick<TablePaginationProps, "page" | "onPageChange" | "className">) => {
+    const totalPage = pageCount && toNumber(pageCount / pageSize);
+
     return (
       <MuiPagination
         color="primary"
         className={className}
-        count={pageCount}
+        count={totalPage && totalPage + 1}
         page={page}
         onChange={(_event, newPage) => {
           setPage(() => newPage);
@@ -40,8 +44,17 @@ export default function AppTable(props: AppTableModel) {
         loading={loading}
         pagination
         paginationMode="server"
+        rowCount={pageCount}
         pageSizeOptions={[5, 10, 20, 50]}
-        onPaginationModelChange={(option => onPageSize && onPageSize(option.pageSize))}
+        componentsProps={{
+          pagination: {
+            labelRowsPerPage: "Chọn số bản ghi",
+          }
+        }}
+        onPaginationModelChange={(option => {
+          setPageSize(option.pageSize);
+          onPageSize && onPageSize(option.pageSize);
+        })}
         slots={{
           pagination: CustomPagination,
           loadingOverlay: LinearProgress

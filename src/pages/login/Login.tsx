@@ -2,10 +2,10 @@ import { useState } from "react";
 import { Box, Button, Grid, Paper, Typography } from "@mui/material";
 import { green } from "@mui/material/colors";
 import InputCommon from "src/components/input/InputCommon";
-import { type UserModel } from "src/model/Usermodel";
-import { login } from "src/store/author/author";
 import { useAppDispatch } from "src/store/reduxHook";
 import { StyleLogin } from "./styleLogin";
+import { type UserModel } from "src/model/pages/LoginModel";
+import { loginEim } from "src/store/author/author";
 
 export default function Login() {
   const dispatch = useAppDispatch();
@@ -15,7 +15,7 @@ export default function Login() {
   });
 
   const onFinish = () => {
-    dispatch(login(formLogin));
+    dispatch(loginEim(formLogin));
   };
 
   return (

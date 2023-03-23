@@ -16,15 +16,15 @@ function App() {
   const { pathname } = useLocation();
   const dispatch = useAppDispatch();
   const author = getCookie(Authenticate.AUTH);
-  const { isAuthorized } = useAppSelector(getAuthorStore);
+  const { isAuthentication } = useAppSelector(getAuthorStore);
 
   useEffect(() => {
     author ? dispatch(getLogin(author)) : dispatch(logout());
   }, [pathname]);
 
   useEffect(() => {
-    isAuthorized ? <Navigate to="/" /> : <Navigate to="/login" />;
-  }, [isAuthorized]);
+    isAuthentication ? <Navigate to="/" /> : <Navigate to="/login" />;
+  }, [isAuthentication]);
 
   return (
     <QueryClientProvider client={queryClient}>

@@ -49,8 +49,13 @@
       "@typescript-eslint/no-confusing-void-expression": [0],
       "@typescript-eslint/prefer-optional-chain": [0],
       "@typescript-eslint/promise-function-async": [0],
+      "@typescript-eslint/restrict-plus-operands": [0],
+      "@typescript-eslint/brace-style": [0],
+      "@typescript-eslint/consistent-type-imports": [0],
       "multiline-ternary": "off",
       "no-unneeded-ternary": "off",
-      "eol-last": "off"
+      "eol-last": "off",
+      "no-debugger": "off",
+      "no-trailing-spaces": "off"
     }
 }

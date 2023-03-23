@@ -1,8 +1,7 @@
-import { Autocomplete, Button, Divider, Grid, TextField } from "@mui/material";
+import { Autocomplete, Button, Grid, TextField } from "@mui/material";
 import { Close, Create, ExploreOff, HideSource, Search, Update } from "@mui/icons-material";
 import Space from "src/components/space/Space";
 import TablePending from "./TablePending";
-import ListFiles from "./ListFiles";
 
 export const top100Films = [
   { title: "The Shawshank Redemption", year: 1994 },
@@ -100,12 +99,6 @@ export default function Pending() {
       </Grid>
       <Grid item lg={12} sx={{ width: 1000 }}>
         <TablePending />
-      </Grid>
-      <Grid item lg={12}>
-        <Divider />
-      </Grid>
-      <Grid item lg={12}>
-        <ListFiles />
       </Grid>
     </Grid>
   );

@@ -7,3 +7,5 @@ export const isEmptyArray = (inputArray: any[] | any) => {
 export const isEmptyObject = (inputObject: Record<string, unknown>) => {
   return Object.keys(inputObject).length === 0;
 };
+
+export const toNumber = (num?: number) => num ? parseInt(num.toString()) : 0;

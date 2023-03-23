@@ -4,10 +4,17 @@ import { type GridColDef } from "@mui/x-data-grid";
 import { walletUrl } from "src/api/baseUrl";
 import { useState } from "react";
 import axios from "axios";
+import { Delete, Edit } from "@mui/icons-material";
 
 const columns: GridColDef[] = [
   {
-    field: "parGroup", headerName: "parGroup"
+    field: "action",
+    headerName: "action",
+    maxWidth: 150,
+    renderCell: () => <><Edit /><Delete /></>
+  },
+  {
+    field: "parGroup", headerName: "parGroup",
   },
   {
     field: "parName", headerName: "parName"
@@ -22,15 +29,14 @@ export default function TablePending() {
     page: 1,
     limit: 10
   });
-  const { data, isLoading } = useQuery<any>(["fetchData", pageOption], async () =>
+  const { data } = useQuery<any>(["fetchData", pageOption], async () =>
     await axios(`${walletUrl}/ap_params`, { params: pageOption }));
 
   return (
     <AppTable
-      rows={data ? data?.data?.data : []}
+      rows={data ? data?.data : []}
       columns={columns}
-      loading={isLoading}
-      pageCount={data?.data?.totalCount}
+      pageCount={data?.totalCount}
       onPage={(page) => setPageOption(pre => ({ ...pre, page }))}
       onPageSize={(pageSize => setPageOption(pre => ({ ...pre, limit: pageSize })))}
     />

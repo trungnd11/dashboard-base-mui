@@ -1,7 +1,6 @@
 import { Create, TrackChangesTwoTone } from "@mui/icons-material";
 import { Masonry } from "@mui/lab";
 import { Button, Grid, Typography } from "@mui/material";
-import TablePending from "./TablePending";
 
 export default function ListFiles() {
   return (
@@ -16,9 +15,6 @@ export default function ListFiles() {
           <Button variant="contained" startIcon={<Create />}>Thêm file</Button>
           <Button variant="contained" startIcon={<TrackChangesTwoTone />}>So sánh</Button>
         </Masonry>
-      </Grid>
-      <Grid item xl={12} style={{ height: 600, width: 1000 }}>
-        <TablePending />
       </Grid>
     </Grid>
   );

@@ -1,15 +1,17 @@
-import { useEffect, useLayoutEffect, useState } from "react";
+import { Key, useEffect, useState } from "react";
 import { Box, Divider, IconButton, Tooltip, Typography, Zoom } from "@mui/material";
 import { TreeItem, TreeView } from "@mui/lab";
 import { ExpandMore, ChevronRight } from "@mui/icons-material";
 import { useNavigate, useLocation } from "react-router-dom";
 import { StyleMenuSmall, StyleSideBar, StyleTreeviewSmall } from "./sideBarStyles";
-import routers from "../../routers/routers";
 import { type RouterModel } from "../../model/RouterModel";
 import { Color } from "../../components/variable";
 import { getLableItem } from "./handleAppSideBar";
 import { useAppSelector } from "src/store/reduxHook";
 import { getSiderBarStore } from "src/store/siderBar/siderBar";
+import { convertSiteMap } from "src/helpper/siteMap";
+import { getSitesMapStore } from "src/store/sitesMap/sitesMap";
+import { isEmptyArray } from "src/helpper/functionCommon";
 
 const LOGO_URL = "https://vetc.com.vn/images/logo_trang.svg";
 
@@ -21,24 +23,25 @@ export default function AppSideBar() {
   const [idMenu, setIdMenu] = useState("");
   const { pathname } = useLocation();
   const { toggle, closeMenu } = useAppSelector(getSiderBarStore);
+  const { sitesMap } = useAppSelector(getSitesMapStore);
 
   const getExpand = (routes: RouterModel[], preName?: string[]) => {
     for (let i = 0; i < routes?.length; i++) {
       const item = routes[i];
       if (item.path === pathname) {
         if (preName) {
-          setExpanded(() => [...preName, item.id.toString()]);
-          setSelected(() => [item.id.toString()]);
+          setExpanded(() => [...preName, item.id]);
+          setSelected(() => [item.id]);
           return;
         } else {
-          setExpanded(() => [item.id.toString()]);
-          setSelected(() => [item.id.toString()]);
+          setExpanded(() => [item.id]);
+          setSelected(() => [item.id]);
           return;
         }
       } else if (item.children) {
         preName
-          ? getExpand(item.children, [...preName, item.id.toString()])
-          : getExpand(item.children, [item.id.toString()]);
+          ? getExpand(item.children, [...preName, item.id])
+          : getExpand(item.children, [item.id]);
       }
       continue;
     }
@@ -105,9 +108,9 @@ export default function AppSideBar() {
     setSelected(nodeIds);
   };
 
-  useLayoutEffect(() => {
-    getExpand(routers);
-  }, [pathname]);
+  useEffect(() => {
+    !isEmptyArray(sitesMap) && getExpand(convertSiteMap(sitesMap));
+  }, [pathname, sitesMap]);
 
   useEffect(() => {
     idMenu && setIdMenu("");
@@ -125,7 +128,7 @@ export default function AppSideBar() {
       <Divider light />
       {
         toggle ? (
-          routers.map((item, index) => (
+          convertSiteMap(sitesMap).map((item: RouterModel, index: Key | null | undefined) => (
             <StyleMenuSmall key={index} className="menu-item">
               <Tooltip
                 arrow
@@ -153,7 +156,7 @@ export default function AppSideBar() {
               onNodeToggle={handleToggle}
               onNodeSelect={handleSelect}
             >
-              {renderTree(routers)}
+              {renderTree(convertSiteMap(sitesMap))}
             </TreeView>
         )
       }
