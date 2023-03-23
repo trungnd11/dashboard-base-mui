@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Settings, Logout, MenuSharp } from "@mui/icons-material";
-import { Avatar, MenuItem, Menu, Divider, ListItemIcon, IconButton, Tooltip } from "@mui/material";
+import { Avatar, MenuItem, Menu, Divider, ListItemIcon, IconButton } from "@mui/material";
 import { PaperProps, StyleHeader } from "./headerStyles";
 import { useAppDispatch, useAppSelector } from "src/store/reduxHook";
 import { getAuthorStore, logout } from "src/store/author/author";
@@ -37,23 +37,21 @@ export default function AppHearder() {
         <IconButton onClick={toggleSiderBar}>
           <MenuSharp />
         </IconButton>
-        <Tooltip title="Account settings">
-          <IconButton
-            onClick={handleClick}
-            size="small"
-            sx={{ ml: 2 }}
-            aria-controls={open ? "account-menu" : undefined}
-            aria-haspopup="true"
-            aria-expanded={open ? "true" : undefined}
-          >
-            <Space>
-              <Box component="span" color={Color.white}>
-                {username}
-              </Box>
-              <Avatar sx={{ width: 32, height: 32 }}>A</Avatar>
-            </Space>
-          </IconButton>
-        </Tooltip>
+        <IconButton
+          onClick={handleClick}
+          size="small"
+          sx={{ ml: 2 }}
+          aria-controls={open ? "account-menu" : undefined}
+          aria-haspopup="true"
+          aria-expanded={open ? "true" : undefined}
+        >
+          <Space>
+            <Box component="span" color={Color.white}>
+              {username}
+            </Box>
+            <Avatar sx={{ width: 32, height: 32 }}>A</Avatar>
+          </Space>
+        </IconButton>
       </StyleHeader>
       <Menu
         anchorEl={anchorEl}
