@@ -4,6 +4,7 @@ import { DataGrid, GridPagination, type GridColDef } from "@mui/x-data-grid";
 import MuiPagination from "@mui/material/Pagination";
 import { type AppTableModel } from "src/model/component/AppTableModel";
 import { toNumber } from "src/helpper/functionCommon";
+import { localTextDataGird } from "./appTableData";
 
 export default function AppTable(props: AppTableModel) {
   const { rows, columns, loading, checkboxSelection, pageCount, onPage, onPageSize } = props;
@@ -32,7 +33,11 @@ export default function AppTable(props: AppTableModel) {
   const CustomPagination = (props: any) => <GridPagination ActionsComponent={Pagination} {...props} />;
 
   const generateColumns = (columns: GridColDef[]) =>
-    columns.map(column => ({ ...column, flex: column.flex ? column.flex : 1 }));
+    columns.map(column => ({
+      ...column,
+      headerAlign: column.headerAlign ? column.headerAlign : "center",
+      flex: column.flex ? column.flex : 1,
+    }));
 
   return (
     <>
@@ -45,10 +50,15 @@ export default function AppTable(props: AppTableModel) {
         pagination
         paginationMode="server"
         rowCount={pageCount}
+        localeText={localTextDataGird}
         pageSizeOptions={[5, 10, 20, 50]}
         componentsProps={{
           pagination: {
             labelRowsPerPage: "Chọn số bản ghi",
+            labelDisplayedRows(paginationInfo) {
+              const { count, from, to, page } = paginationInfo;
+              return `Trang ${page + 1} từ ${from} đến ${to} tổng số ${count}`;
+            },
           }
         }}
         onPaginationModelChange={(option => {

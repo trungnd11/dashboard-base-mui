@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import AuthApi from "src/api/authApi";
+import Alert from "src/components/alert/Alert";
 import { Authenticate, EIM } from "src/enum/AuthorEnum";
 import { deleteCookie, setCookie } from "src/helpper/cookie";
 import { getTransId } from "src/helpper/jwt";
@@ -83,6 +84,7 @@ const Authorized = createSlice({
       .addCase(loginEim.rejected, (state, action) => {
         state.loadding = false;
         state.isAuthentication = false;
+        Alert({ messages: action.error?.message ?? "", type: "error" });
       });
   },
 });

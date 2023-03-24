@@ -3,7 +3,9 @@ import ReactDOM from "react-dom/client";
 import { Provider } from "react-redux";
 import { bindActionCreators } from "@reduxjs/toolkit";
 import { ThemeProvider } from "@mui/material";
+import { ToastContainer } from "react-toastify";
 import "./index.scss";
+import "react-toastify/ReactToastify.min.css";
 import App from "./App";
 import store from "./store";
 import reportWebVitals from "./reportWebVitals";
@@ -26,6 +28,7 @@ root.render(
       <Provider store={store}>
         <ThemeProvider theme={theme}>
           <App />
+          <ToastContainer />
         </ThemeProvider>
       </Provider>
     </React.StrictMode>

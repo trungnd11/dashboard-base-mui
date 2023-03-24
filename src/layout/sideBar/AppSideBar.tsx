@@ -9,9 +9,10 @@ import { Color } from "../../components/variable";
 import { getLableItem } from "./handleAppSideBar";
 import { useAppSelector } from "src/store/reduxHook";
 import { getSiderBarStore } from "src/store/siderBar/siderBar";
-import { convertSiteMap } from "src/helpper/siteMap";
+// import { convertSiteMap } from "src/helpper/siteMap";
 import { getSitesMapStore } from "src/store/sitesMap/sitesMap";
 import { isEmptyArray } from "src/helpper/functionCommon";
+import routers from "src/routers/routers";
 
 const LOGO_URL = "https://vetc.com.vn/images/logo_trang.svg";
 
@@ -109,7 +110,7 @@ export default function AppSideBar() {
   };
 
   useEffect(() => {
-    !isEmptyArray(sitesMap) && getExpand(convertSiteMap(sitesMap));
+    !isEmptyArray(sitesMap) && getExpand(routers);
   }, [pathname, sitesMap]);
 
   useEffect(() => {
@@ -128,7 +129,7 @@ export default function AppSideBar() {
       <Divider light />
       {
         toggle ? (
-          convertSiteMap(sitesMap).map((item: RouterModel, index: Key | null | undefined) => (
+          routers.map((item: RouterModel, index: Key | null | undefined) => (
             <StyleMenuSmall key={index} className="menu-item">
               <Tooltip
                 arrow
@@ -156,7 +157,7 @@ export default function AppSideBar() {
               onNodeToggle={handleToggle}
               onNodeSelect={handleSelect}
             >
-              {renderTree(convertSiteMap(sitesMap))}
+              {renderTree(routers)}
             </TreeView>
         )
       }

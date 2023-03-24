@@ -1,17 +1,24 @@
 import AppTable from "src/components/table/AppTable";
+import { Delete, Edit } from "@mui/icons-material";
 import { useQuery } from "react-query";
 import { type GridColDef } from "@mui/x-data-grid";
 import { walletUrl } from "src/api/baseUrl";
 import { useState } from "react";
 import axios from "axios";
-import { Delete, Edit } from "@mui/icons-material";
+import Space from "src/components/space/Space";
 
 const columns: GridColDef[] = [
   {
     field: "action",
     headerName: "action",
+    align: "center",
     maxWidth: 150,
-    renderCell: () => <><Edit /><Delete /></>
+    renderCell: () => (
+      <Space>
+        <Edit />
+        <Delete />
+      </Space>
+    )
   },
   {
     field: "parGroup", headerName: "parGroup",

@@ -11,5 +11,10 @@ export enum EIM {
   CLIENT_SECRET = "e75cPWjZ2UBFNVo2tdyvxwDTERiO854c",
   APP_CODE_EIM = "VETC.RECONCILE",
   APP_CODE = "APP_EIM",
+};
 
+export enum FormLogin {
+  USERNAME = "username",
+  PASSWORD = "password",
+  REMEMBER = "remember"
 }
