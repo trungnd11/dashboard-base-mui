@@ -8,13 +8,18 @@ interface InputProps {
   type?: "password" | "text"
   focused?: boolean
   variant?: "standard" | "outlined" | "filled"
+  helperText?: string
+  error?: boolean
 }
 
 export default function InputCommon(props: InputProps) {
-  const { label, size, value, type, onChange, focused, variant } = props;
+  const { label, size, value, type, onChange, focused, variant, error, helperText } = props;
+
   return (
     <TextField
       fullWidth
+      error={error}
+      helperText={helperText}
       variant={variant ?? "outlined"}
       focused={focused}
       size={size ?? "small"}
