@@ -3,6 +3,7 @@ import { Grid, Autocomplete, TextField, Button } from "@mui/material";
 import Space from "src/components/space/Space";
 import { top100Films } from "../pending/Pending";
 import TablePending from "../pending/TablePending";
+import AppUpload from "src/components/upload/AppUpload";
 
 export default function Canceled() {
   return (
@@ -48,6 +49,9 @@ export default function Canceled() {
       </Grid>
       <Grid item lg={12} style={{ height: 600, width: 1000 }}>
         <TablePending />
+      </Grid>
+      <Grid item lg={12}>
+        <AppUpload />
       </Grid>
     </Grid>
   );
